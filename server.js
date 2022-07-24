@@ -1,6 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
 const producerRouter = require('./routes/producerRouter');
+const eventRouter = require('./routes/eventRouter');
+const newsRouter = require('./routes/newsRouter');
+const marketRouter = require('./routes/marketRouter');
 
 const hostname = 'localhost';
 const port = 3000;
@@ -10,6 +13,9 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 app.use('/producers', producerRouter);
+app.use('/events', eventRouter);
+app.use('/news', newsRouter);
+app.use('/market', marketRouter);
 
 app.use(express.static(__dirname + '/public'));
 
